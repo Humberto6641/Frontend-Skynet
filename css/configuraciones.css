@@ -1,0 +1,115 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url('https://images.unsplash.com/photo-1515266591878-f93e32bc5937?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+.modulos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100vw; /* Ancho completo */
+    height: 100vh; /* Altura completa */
+    padding:100px; /* Añadido espacio alrededor */
+    box-sizing: border-box;
+    background-color: #0c0c16a2;
+}
+
+.modulo {
+    width: 300px; /* Tamaño fijo para cada módulo */
+    height: 200px; /* Tamaño fijo para cada módulo */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 11;
+
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Colores de fondo diferentes */
+#clientes {
+    background-color: #005eff7b; /* Azul */
+}
+
+#usuarios {
+    background-color: #fa5afc59; /* Verde */
+}
+
+#reportes {
+    background-color: #3ffdbb88; /* Rojo */
+}
+
+#grupos {
+    background-color: #f83b8088; /* Amarillo */
+}
+
+/* Efecto de elevación al pasar el cursor */
+.modulo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen de fondo en hover */
+.modulo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Diferentes imágenes para cada tarjeta */
+#clientes:hover::after {
+    background-image: url('https://icon-library.com/images/user-icon-png/user-icon-png-13.jpg');
+    opacity: 0.4;
+}
+
+#usuarios:hover::after {
+    background-image: url('https://cdn-icons-png.freepik.com/512/4475/4475034.png');
+    opacity: 0.4;
+}
+
+#reportes:hover::after {
+    background-image: url('https://png.pngtree.com/png-vector/20240912/ourmid/pngtree-financial-report-icon-png-image_13825199.png');
+    opacity: 0.4;
+}
+
+#grupos:hover::after {
+    background-image: url('https://i.pinimg.com/originals/eb/0a/3d/eb0a3d1008555c805c795cb875114ef8.png');
+    opacity: 0.4;
+}
+
+
+
+
+/* Media query para hacer responsive */
+@media (max-width: 768px) {
+    .modulo {
+        width: 90%; /* Ajusta el tamaño de las tarjetas en pantallas pequeñas */
+    }
+}

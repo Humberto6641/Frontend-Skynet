@@ -1,0 +1,106 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    display: block;
+    overflow-y: auto;
+    background-image: url('https://images.unsplash.com/photo-1486728297118-82a07bc48a28?q=80&w=1229&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;  /* Hace que la imagen cubra todo sin repetirse */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene la imagen estática al hacer scroll */
+}
+
+
+/* Estilos generales del Dashboard */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajustar a toda la pantalla */
+    gap: 20px;
+    background-color: #0c0c1695;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para las tarjetas */
+.dashboard-card {
+    width: 250px;
+    height: 200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Colores de fondo diferentes */
+#clientes {
+    background-color: #005eff7b; /* Azul */
+}
+
+#visitas {
+    background-color: #f03dfa7c; /* Verde */
+}
+
+#configuracion {
+    background-color: #1deaf87d; /* Rojo */
+}
+
+/* Efecto de elevación al pasar el cursor */
+.dashboard-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen de fondo en hover */
+.dashboard-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Diferentes imágenes para cada tarjeta */
+#clientes:hover::after {
+    background-image: url('https://icon-library.com/images/user-icon-png/user-icon-png-13.jpg'); /* Imagen de clientes */
+    opacity: 0.4;
+}
+
+#visitas:hover::after {
+    background-image: url('https://pixsector.com/cache/0266455f/ava13c3ac53812cde1b88.png'); /* Imagen de visitas */
+    opacity: 0.4;
+}
+
+#configuracion:hover::after {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/016/017/069/non_2x/transparent-configuration-gear-icon-free-png.png'); /* Imagen de configuración */
+    opacity: 0.4;
+}
+
+/* Media query para hacer responsive */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-card {
+        width: 90%;
+    }
+}

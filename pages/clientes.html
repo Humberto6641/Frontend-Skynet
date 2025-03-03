@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="../css/clientes.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+<body>
+    <div class="clientes-container">
+        <h3>Gestión de Clientes</h3>
+        <div class="clientes-grid">
+            <div class="formulario-container">
+                <h3>Agregar Cliente</h3>
+                <form id="clienteForm">
+                    <input type="hidden" id="clienteId">
+                    
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Nombre" required>
+    
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" placeholder="Correo" required>
+    
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" placeholder="Teléfono" required>
+    
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" placeholder="Dirección" required>
+    
+                    <!-- El campo de ubicación lo ocultamos porque lo vamos a manejar con el mapa -->
+                    <input type="hidden" id="ubicacion" placeholder="Ubicación">
+    
+                    <div id="map" style="height: 400px; width: 100%;"></div>
+    
+                    <input type="hidden" id="latitud">
+                    <input type="hidden" id="longitud">
+                    <div id="espacio" ></div>
+                    <button type="submit">Guardar Cliente</button>
+                </form>
+            </div>
+     
+
+            <!-- 📌 Tabla para mostrar clientes -->
+            <div class="tabla-container">
+                <div class="table-wrapper">
+                    <h3>Lista de Clientes</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>Dirección</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientesTablaBody">
+                            <!-- Aquí se insertarán los clientes dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/clientes.js"></script>
+</body>
+</html>

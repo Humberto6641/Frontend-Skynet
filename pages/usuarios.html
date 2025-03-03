@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Usuarios</title>
+    <link rel="stylesheet" href="../css/usuarios.css"> <!-- Enlaza tu archivo de estilos -->
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Listado de Usuarios</h2>
+
+        <!-- Tabla de usuarios -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>telefono</th>
+                    <th>Rol</th>
+                    <th>Contraseña</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="usuariosTablaBody">
+                <!-- Aquí se agregarán las filas con los usuarios -->
+            </tbody>
+        </table>
+
+        <!-- Botón para agregar nuevos usuarios (opcional) -->
+        <div class="back-btn">
+            <button class="btn" onclick="window.location.href='agregarUsuario.html'">Agregar Nuevo Usuario</button>
+        </div>
+    </div>
+
+    <script src="../js/usuarios.js"></script>
+
+</body>
+</html>

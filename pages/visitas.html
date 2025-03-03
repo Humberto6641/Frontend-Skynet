@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Visitas</title>
+    <link rel="stylesheet" href="../css/visitas.css">
+</head>
+<body>
+    <div class="modulos-container"> 
+    <h2>Gestión de Visitas</h2>
+
+    <section id="moduloCrearVisita" class="modulo">
+        <h2>Crear Visita</h2>
+        <form id="crearVisitaForm">
+            <label id="c" for="cliente">Cliente:</label>
+            <select id="cliente" name="id_cliente">
+                <!-- Opciones cargadas dinámicamente -->
+            </select>
+        
+            <label  id="c" for="tecnico">Técnico:</label>
+            <select id="selectTecnico" name="id_tecnico">
+                <!-- Técnicos del grupo cargados dinámicamente -->
+            </select>
+        
+            <label  id="c" for="motivo">Motivo:</label>
+            <input type="text" id="motivo" name="motivo" required>
+        
+            <label  id="c" for="tipo_servicio">Tipo de Servicio:</label>
+            <select id="tipo_servicio" name="tipo_servicio">
+                <option value="Mantenimiento">Mantenimiento</option>
+                <option value="Instalación">Instalación</option>
+                <option value="Revisión">Revisión</option>
+            </select>
+        
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+        
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" required>
+        
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado">
+                <option value="Pendiente">Pendiente</option>
+                <option value="En progreso">En progreso</option>
+                <option value="Completado">Completado</option>
+            </select>
+        
+            <label id="c" for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones"></textarea>
+        
+            <button type="submit">Crear Visita</button>
+        </form>
+    </section>
+    
+    <!-- Todas las Visitas (Módulo Azul) -->
+    <section id="moduloTodasVisitas" class="modulo">
+        <h2>Todas las Visitas</h2>
+        <div class="table-wrapper">
+        <table >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Tecnico</th>
+                    <th>Supervisor</th>
+                    <th>Motivo</th>
+                    <th>Tipo de Servicio</th>
+                    <th>Fecha</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Observaciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="todasVisitasTablaBody">
+                <!-- Filas generadas dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+   
+    </section>
+
+    <section id="revisaReporte" class="modulo">
+        <div  class="dashboard-card" onclick="location.href='revisaReporte.html'">
+            revisaReporte
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Mi Grupo (Módulo Verde) -->
+    <section id="moduloMiGrupo" class="modulo">
+    <h2>Mi Grupo</h2>
+    <div id="grupoInfo">
+        <p><strong>Grupo:</strong> Cargando...</p>
+        <p><strong>Descripción:</strong> Cargando...</p>
+        <p><strong>Supervisor:</strong> Cargando...</p>
+    </div>
+
+    <div id="configuracion" class="dashboard-card" onclick="location.href='misReportes.html'">
+        Reportes
+    </div>
+    </section>
+
+<!-- Mis Visitas (Módulo Naranja) -->
+    <section id="moduloMisVisitas" class="modulo">
+    <h2>Mis Visitas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Tecnico</th>
+                <th>Motivo</th>
+                <th>Tipo de servicio</th>
+                <th>Fecha</th>
+                <th>Ubicacion</th>
+                <th>Estado</th>
+                <th>Observaciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaMisVisitas">
+            <!-- Filas generadas dinámicamente -->
+        </tbody>
+    </table>
+
+    
+    </section>
+
+    </div>
+</div>
+    <script src="../js/visitas.js"></script>
+</body>
+</html>

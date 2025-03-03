@@ -1,0 +1,155 @@
+/* Establece que todo debe ocupar toda la altura y ancho disponibles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw; /* Ancho completo */
+    font-family: Arial, sans-serif;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambié a flex-start para evitar que se centre todo */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url('https://images.unsplash.com/photo-1730422206327-b88720e9806b?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+/* Contenedor principal */
+.clientes-container {
+  
+    display: flex;
+    flex-direction: column; /* Apilar el título y los contenedores */
+    margin: 20px auto;
+    background-color: #0404047f;
+}
+
+/* Contenedor principal */
+.clientes-container {
+    background-color: #0404047f;
+    width: 100vw; /* Ancho completo */
+    height: 100vh; /* Altura completa */
+    display: flex;
+    flex-direction: column; /* Apilar el título y los contenedores */
+    margin: 0%;
+    padding: 0%; /* Centrar el contenedor y dejar margen de 20px en los bordes */
+    text-align: center;
+    color: #fcfcfc;
+    padding: 0 20px; /* Agregar margen interior (espacio entre el contenido y el borde del contenedor) */
+}
+
+/* Contenedor con el formulario y la tabla en fila */
+.clientes-grid {
+    
+    display: flex; /* Alineación en fila */
+    gap: 20px; /* Espacio entre el formulario y la tabla */
+    width: 100%;
+}
+
+/* Formulario de agregar cliente */
+.formulario-container {
+    background-color: #1010106c;
+    flex-basis: 40%; /* Asignar un 40% de espacio fijo para el formulario */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabla de clientes */
+.tabla-container {
+    background-color: #00000061;
+    flex-basis: 90%; /* Asignar un 60% de espacio fijo para la tabla */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo para la tabla */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(40, 40, 40, 0.8);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.502);
+    font-weight: bold;
+}
+
+td {
+    background-color: rgba(23, 23, 23, 0.7);
+}
+
+/* Campos de texto */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #fcfcfc;
+    background-color: rgba(255, 255, 255, 0.615);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Etiquetas */
+label {
+    color: white;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+/* Títulos */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #74eaff6f;
+    color: rgb(249, 249, 249);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn{
+    width: 75%;
+    height: 30%;
+    padding: 12px;
+    background-color: #74eaff6f;
+    color: rgb(247, 247, 247);
+    border: none;
+    border-radius: 5px;
+    font-size: 11px;
+    text-align: right;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0 20px;
+}
+#espacio{
+    margin-top: 10px;
+    padding-top: 10px;
+}

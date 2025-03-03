@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Reporte</title>
+    <link rel="stylesheet" href="../css/infoReporte.css">
+    
+    <!-- Importación de supabase como módulo -->
+    <script src="
+https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.48.1/dist/umd/supabase.min.js
+"></script>
+    
+</head>
+<body>
+    <div  class="modulo">
+    <h2>Crear Reporte</h2>
+    <form id="formReporte">
+        <label>ID Visita:</label>
+        <input type="text" id="id_visita" readonly>
+
+        <label>ID Técnico:</label>
+        <input type="text" id="id_tecnico" readonly>
+
+        <label>ID Supervisor:</label>
+        <input type="text" id="id_supervisor" readonly>
+
+        <label>Hora Inicio:</label>
+        <input type="text" id="horaInicio" readonly>
+
+        <label>Descripción:</label>
+        <textarea id="descripcion" required></textarea>
+
+        <label>Estado:</label>
+        <select id="estado">
+            <option value="Pendiente">Pendiente</option>
+            <option value="Corregir">Corregir</option>
+            <option value="Aprobado">Aprobado</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+
+        <label>Subir Evidencia:</label>
+        <input type="file" id="evidencia" multiple accept="image/*,application/pdf">
+
+        <button type="submit">Enviar Reporte</button>
+    </form>
+    </div>
+    
+    <!-- Tu script JS para manejar la lógica del formulario -->
+    <script  src="../js/infoReporte.js"></script>
+</body>
+</html>

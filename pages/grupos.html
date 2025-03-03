@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Grupos</title>
+    <link rel="stylesheet" href="../css/grupos.css">
+</head>
+<body>
+    <!-- Sección para crear nuevos grupos -->
+ <div class="container">
+    <div class="espacio"></div>
+     <div class="clientes-grid">
+     <div class="containerForm">
+     <section id="crearGrupo">
+        <h2>Crear Nuevo Grupo</h2>
+        <form id="formCrearGrupo">
+            <label for="nombreGrupo">Nombre del Grupo:</label>
+            <input type="text" id="nombreGrupo" name="nombreGrupo" required>
+            
+            <label for="descripcionGrupo">Descripción:</label>
+            <input type="text" id="descripcionGrupo" name="descripcionGrupo" required>
+
+            <label for="supervisorGrupo">Supervisor:</label>
+            <select id="supervisorGrupo" name="supervisorGrupo" required>
+                <!-- Aquí irán los supervisores disponibles -->
+            </select>
+
+            <button type="submit">Crear Grupo</button>
+        </form>
+      </section>
+     </div>
+
+     <!-- Sección para asignar técnicos a los grupos existentes -->
+     <div id="gruposContainer">
+     <section id="asignarTecnicos">
+        <h2>Asignar Técnicos a los Grupos</h2>
+        <div id="gruposExistentes">
+            <label for="select-tecnicos">Seleccionar Técnico Disponible:</label>
+            
+              <!-- Aquí se listarán los grupos existentes con selects para asignar técnicos -->
+        </div>
+      </section>
+      </div>
+     </div>
+    </div>
+    <script src="../js/gestionarGrupos.js"></script>  
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body  id="background">
+    <div class="login-container">
+        <!-- Módulo de Iniciar Sesión -->
+        <div class="form-module login">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="correo">Correo:</label>
+                <input type="email" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" id="correo" name="correo" required>
+                
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Ingresar</button>
+                
+            </form>
+            <button class="toggle-btn" id="goToRegisterBtn">Ir a Registro</button>
+        </div>
+        
+        <!-- Módulo de Registro -->
+        <div class="form-module register">
+            <h2>Registro</h2>
+            <form id="registerForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correoRegistro">Correo:</label>
+                <input type="email" id="correoRegistro" name="correo" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" required>
+
+                <label for="passwordRegistro">Contraseña:</label>
+                <input type="password" id="passwordRegistro" name="password" required>
+
+                <button type="submit">Registrar</button>
+               
+            </form>
+            <button class="toggle-btn" id="goToLoginBtn">Ir a Login</button>
+        </div>
+
+        <p id="error-message" class="error-message"></p>
+    </div>
+    
+    <!-- Panel Informativo -->
+    <div class="info-panel" id="infoPanel">
+        <p class="title-panel"><strong>Bienvenido a SkyNet S.A.</strong></p>
+        <p>SkyNet S.A. es una empresa destacada en el ámbito de la consultoría informática, con una amplia experiencia en ofrecer Servicios Técnicos y Profesionales especializados en áreas clave como Infraestructura, Soporte y Mantenimiento de Equipos. A lo largo de los años, ha establecido un sólido compromiso con la calidad, brindando soluciones tecnológicas innovadoras que permiten a las empresas optimizar su rendimiento y mantenerse a la vanguardia en el ámbito digital.
+            Gracias a su enfoque en la mejora continua y la satisfacción de sus clientes, SkyNet S.A. ha experimentado un crecimiento acelerado que le ha permitido expandir su presencia a nivel nacional, cubriendo todos los departamentos del país. Este crecimiento ha sido posible gracias a la dedicación y profesionalismo de su equipo de expertos, quienes han logrado construir relaciones de confianza con sus clientes y ofrecer soluciones que se ajustan a las necesidades específicas de cada sector. 
+            Con su expansión y la diversificación de sus servicios, SkyNet S.A. se ha consolidado como un referente en el mercado de la consultoría informática, brindando siempre soluciones tecnológicas de alta calidad que aseguran el éxito y la competitividad de sus clientes.</p>
+    </div>
+
+
+
+
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>
