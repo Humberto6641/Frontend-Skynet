@@ -9,7 +9,7 @@ body, html {
     overflow-y: auto;
 }
 
-/* Fondo con transición */
+/* ransición */
 body {
     height: 100%;
     background-size: cover;
@@ -18,7 +18,7 @@ body {
     transition: background-image 1s ease-in-out;
 }
 
-/* Contenedor principal */
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -28,10 +28,10 @@ body {
     min-height: 100vh;
     box-sizing: border-box;
     padding: 0 20px;
-    position: relative; /* Importante para animaciones */
+    position: relative; 
 }
 
-/* Cuadros de Login y Registro */
+/* Login y Registro */
 .form-module {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -43,16 +43,16 @@ body {
     background-color: rgba(0, 0, 0, 0.365);
 }
 
-/* Nueva clase para hacer los paneles invisibles */
+/*Oculta la tabla de registro o login*/
 .invisible {
-    visibility: hidden; /* Hace que el elemento y sus hijos sean invisibles */
-    opacity: 0; /* Añade un efecto de opacidad para que no ocupe espacio */
-    pointer-events: none; /* Evita que los usuarios interactúen con el panel invisible */
-    transition: opacity 0.5s ease-out; /* Agrega una transición suave */
+    visibility: hidden; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease-out; 
 }
 
 .invisible * {
-    visibility: hidden; /* Asegura que todos los elementos hijos dentro de los paneles también sean invisibles */
+    visibility: hidden; 
 }
 
 /* Etiquetas */
@@ -64,7 +64,7 @@ label {
     font-size: 16px;
 }
 
-/* Títulos */
+/* Titulo */
 h2 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -72,7 +72,7 @@ h2 {
 }
 
 
-/* Campos de texto */
+/* campos */
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -85,7 +85,7 @@ input[type="text"] {
     font-size: 16px;
 }
 
-/* Botón */
+/* Botones */
 button {
     width: 100%;
     padding: 12px;
@@ -101,17 +101,17 @@ button {
 
 
 
-/* Panel informativo (tercer cuadro) */
+
 .info-panel {
     position: absolute;
     top: 6.5%;
-    left: 50%; /* Empieza cubriendo el registro */
+    left: 50%; 
     width: 400px;
     height: 80.5%;
     background-color: rgba(0, 0, 0, 0.367);
     
-    background-size: cover; /* Asegura que la imagen cubra todo el área */
-    background-position: center; /* Centra la imagen */
+    background-size: cover; 
+    background-position: center; 
     color: rgb(251, 251, 251);
     padding: 20px;
     display: block;
@@ -119,17 +119,17 @@ button {
     transition: transform 0.5s ease-in-out;
 }
 
-/* Título */
+/* titulos */
 .info-panel .title-panel {
     font-family: "Homer Simpson UI";
     font: caption;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 15px; /* Espacio entre el título y el texto */
+    margin-bottom: 15px; 
     color: #ffffff;
 }
 
-/* Texto del panel */
+
 .info-panel p {
     font-family: "Homer Simpson UI";
     text-align: justify;
@@ -138,13 +138,13 @@ button {
     font-size: 12px;
 }
 
-/* Ocultar texto cuando está cubierto */
+/* Ocultar texto cuando esta cubierto */
 .info-panel.hidden {
     display: none;
 }
 
 
-/* Botón de cambio */
+/* Boton para camiar */
 .toggle-btn {
     width: 100%;
     padding: 12px;
@@ -162,14 +162,14 @@ button {
     background-color: #0056b3;
 }
 
-/* Estilos responsivos */
+
 @media screen and (max-width: 800px) {
     .login-container {
         flex-direction: column;
     }
 
     .info-panel {
-        left: 0; /* Se acomoda en pantallas pequeñas */
+        left: 0; 
         width: 100%;
     }
    

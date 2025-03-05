@@ -1,4 +1,4 @@
-// 📌 Obtener los usuarios
+//  Obtener los usuarios
 async function obtenerUsuarios() {
     const token = localStorage.getItem("token");
 
@@ -18,14 +18,14 @@ async function obtenerUsuarios() {
     }
 }
 
-// 📌 Mostrar usuarios en la tabla y habilitar edición en línea
+// Mostrar usuarios en la tabla y habilitar edición en línea
 function mostrarUsuarios(usuarios) {
     const tablaBody = document.getElementById("usuariosTablaBody");
-    tablaBody.innerHTML = ""; // Limpiar la tabla antes de agregar nuevas filas
+    tablaBody.innerHTML = ""; 
 
     usuarios.forEach(usuario => {
         const fila = document.createElement("tr");
-        fila.setAttribute("data-id", usuario.id);  // Añadir el ID a la fila para identificarlas
+        fila.setAttribute("data-id", usuario.id);  
 
         fila.innerHTML = `
             <td><span class="usuario-id">${usuario.id}</span></td>
@@ -51,20 +51,20 @@ function mostrarUsuarios(usuarios) {
 }
 
 
-// 📌 Activar la edición de un usuario
+// Activar la edición de un usuario
 function activarEdicion(id, button) {
-    const fila = document.querySelector(`tr[data-id='${id}']`);  // Buscar la fila por el id
+    const fila = document.querySelector(`tr[data-id='${id}']`);  
     if (!fila) {
         console.error("Fila no encontrada.");
         return;
     }
 
-    // Mostrar los campos de edición
-    fila.querySelector(".usuario-nombre").style.display = "none";  // Ocultar nombre
-    fila.querySelector(".usuario-correo").style.display = "none";  // Ocultar correo
-    fila.querySelector(".usuario-telefono").style.display = "none";  // Ocultar teléfono
-    fila.querySelector(".usuario-rol").style.display = "none";  // Ocultar rol
-    fila.querySelector(".usuario-contraseña").style.display = "none";  // Ocultar contraseña
+    
+    fila.querySelector(".usuario-nombre").style.display = "none";  
+    fila.querySelector(".usuario-correo").style.display = "none";  
+    fila.querySelector(".usuario-telefono").style.display = "none";  
+    fila.querySelector(".usuario-rol").style.display = "none";  
+    fila.querySelector(".usuario-contraseña").style.display = "none";  
 
     // Mostrar los inputs de edición
     fila.querySelectorAll(".edit-input").forEach(input => input.style.display = "inline-block");
@@ -73,12 +73,12 @@ function activarEdicion(id, button) {
     fila.querySelector(".guardar").style.display = "inline-block";
     fila.querySelector(".cancelar").style.display = "inline-block";
     
-    // Ocultar el botón de Editar
+    
     button.style.display = "none";
 }
 
 
-// 📌 Guardar los cambios de un usuario
+// Guardar los cambios de un usuario
 async function guardarEdicion(id) {
     const fila = document.querySelector(`tr[data-id='${id}']`);
     if (!fila) {
@@ -90,18 +90,18 @@ async function guardarEdicion(id) {
     const correo = fila.querySelector("td:nth-child(3) .edit-input").value;
     const telefono = fila.querySelector("td:nth-child(4) .edit-input").value;
     const rol = fila.querySelector("td:nth-child(5) select").value;
-    const password = fila.querySelector("td:nth-child(6) .edit-input").value; // ✅ Ahora selecciona correctamente la contraseña
+    const password = fila.querySelector("td:nth-child(6) .edit-input").value; 
 
     const usuarioActualizado = {
         nombre,
         correo,
         telefono,
         rol,
-        password // ✅ Ahora este campo contiene realmente la contraseña
+        password 
     };
 
     const token = localStorage.getItem("token");
-    console.log("📌 Datos enviados al backend:", usuarioActualizado);
+    console.log("Datos enviados al backend:", usuarioActualizado);
 
     try {
         const response = await fetch(`https://skynet-by4s.onrender.com/usuarios/${id}`, {
@@ -115,7 +115,7 @@ async function guardarEdicion(id) {
 
         if (response.ok) {
             alert("Usuario actualizado correctamente.");
-            obtenerUsuarios(); // Recargar la lista de usuarios después de la actualización
+            obtenerUsuarios(); 
         } else {
             throw new Error(`Error HTTP: ${response.status}`);
         }
@@ -125,9 +125,9 @@ async function guardarEdicion(id) {
     }
 }
 
-// 📌 Cancelar la edición
+//Cancelar la edición
 function cancelarEdicion(id) {
-    const fila = document.querySelector(`tr[data-id='${id}']`);  // Buscar la fila por el id
+    const fila = document.querySelector(`tr[data-id='${id}']`);  
     if (!fila) {
         console.error("Fila no encontrada.");
         return;
@@ -162,7 +162,7 @@ function cancelarEdicion(id) {
 
 
 
-// 📌 Eliminar un usuario
+// Eliminar un usuario
 async function eliminarUsuario(id) {
     const token = localStorage.getItem("token");
 
@@ -181,7 +181,7 @@ async function eliminarUsuario(id) {
 
         if (response.ok) {
             alert("Usuario eliminado exitosamente.");
-            obtenerUsuarios(); // Recargar la lista de usuarios después de la eliminación
+            obtenerUsuarios(); 
         } else {
             throw new Error(`Error HTTP: ${response.status}`);
         }
@@ -194,5 +194,5 @@ async function eliminarUsuario(id) {
 
 
 
-// Llamar a la función al cargar la página
+///
 document.addEventListener("DOMContentLoaded", obtenerUsuarios);

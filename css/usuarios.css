@@ -27,9 +27,9 @@ body, html {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 100vw; /* Ancho completo */
-    height: 100vh; /* Altura completa */
-    padding:100px; /* Añadido espacio alrededor */
+    width: 100vw; 
+    height: 100vh; 
+    padding:100px; 
     box-sizing: border-box;
     background-color: #0c0c16a2;
 }

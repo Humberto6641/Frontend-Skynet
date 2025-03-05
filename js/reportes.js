@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     cargarReportes();
 });
-
+//Funcion para obtenr los reportes
 async function cargarReportes() {
     try {
-        const token = localStorage.getItem("token"); // Obtener el token de autenticación
+        const token = localStorage.getItem("token"); 
         const response = await fetch("https://skynet-by4s.onrender.com/reportes", {
             method: "GET",
             headers: {
@@ -23,10 +23,10 @@ async function cargarReportes() {
         console.error("Error:", error);
     }
 }
-
+//Cargar los reportes en la tabla
 function mostrarReportes(reportes) {
     const tbody = document.querySelector("#reportesTable tbody");
-    tbody.innerHTML = ""; // Limpiar la tabla antes de insertar nuevos datos
+    tbody.innerHTML = ""; 
 
     reportes.forEach(reporte => {
         const fila = document.createElement("tr");
@@ -58,7 +58,7 @@ function agregarEventosEliminar() {
             const id = event.target.dataset.id;
             if (confirm("¿Estás seguro de que quieres eliminar este reporte?")) {
                 await eliminarReporte(id);
-                cargarReportes(); // Recargar la tabla después de eliminar
+                cargarReportes(); 
             }
         });
     });

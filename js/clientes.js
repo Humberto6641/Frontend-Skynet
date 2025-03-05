@@ -1,29 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-    checkAuthentication(); // Verifica si el usuario está autenticado
-    obtenerClientes(); // Llama a la API para obtener clientes
+    checkAuthentication(); 
+    obtenerClientes(); 
 });
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM cargado correctamente");
 
-    // Inicializar el mapa centrado en un punto por defecto (CDMX)
-    var map = L.map('map').setView([19.432608, -99.133209], 13); // CDMX por defecto
 
-    // Agregar capa de mapa (OpenStreetMap)
+    ////////////////////////////////Mapa 
+    ////////////////////////////////14.639505, -90.518479 por defecto ciudad capital
+    var map = L.map('map').setView([14.639505, -90.518479], 13); 
+
+    // Agregar capa de mapa utilizando (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
     // Marcador inicial
-    var marker = L.marker([19.432608, -99.133209], { draggable: true }).addTo(map);
+    var marker = L.marker([14.639505, -90.518479], { draggable: true }).addTo(map);
 
-    // Actualizar coordenadas cuando se mueve el marcador
+    // se aasegura de actualizar coordenadas cuando se mueve el marcador
     marker.on('dragend', function (event) {
         var latlng = event.target.getLatLng();
         document.getElementById("latitud").value = latlng.lat;
         document.getElementById("longitud").value = latlng.lng;
     });
 
-    // Actualizar coordenadas al hacer clic en el mapa
+    // toma las coordenadas al hacer clic en el mapa
     map.on('click', function (event) {
         var latlng = event.latlng;
         marker.setLatLng(latlng);
@@ -32,11 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Eliminada la bandera y el doble envío
-document.getElementById("clienteForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Evitar el envío normal del formulario
 
-    // Capturar los valores del formulario
+document.getElementById("clienteForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); 
+
+   
     const nombre = document.getElementById("nombre").value;
     const correo = document.getElementById("correo").value;
     const telefono = document.getElementById("telefono").value;
@@ -93,7 +95,7 @@ document.getElementById("clienteForm").addEventListener("submit", async function
 
 
 
-// 📌 Obtener los clientes
+//obtiene tods los clientes
 async function obtenerClientes() {
     const token = localStorage.getItem("token");
 
@@ -116,7 +118,7 @@ async function obtenerClientes() {
 // Llamar a la función al cargar la página
 document.addEventListener("DOMContentLoaded", obtenerClientes);
 
-// 📌 Mostrar clientes en la tabla y habilitar edición en línea
+// mostrar clientes en la tabla y habilitar edición en línea
 function mostrarClientes(clientes) {
     const tablaBody = document.getElementById("clientesTablaBody");
     tablaBody.innerHTML = ""; // Limpiar la tabla antes de agregar nuevas filas
@@ -143,15 +145,15 @@ function mostrarClientes(clientes) {
 }
 
 
-// 📌 Activar la edición de un cliente
+//Activar la edicion de un cliente
 function activarEdicionCliente(id, button) {
-    const fila = document.querySelector(`tr[data-id='${id}']`);  // Buscar la fila por el id
+    const fila = document.querySelector(`tr[data-id='${id}']`); 
     if (!fila) {
         console.error("Fila no encontrada.");
         return;
     }
 
-    // Mostrar los campos de edición
+    // Mostrar los campos de edicion
     fila.querySelector(".cliente-nombre").style.display = "none";
     fila.querySelector(".cliente-correo").style.display = "none";
     fila.querySelector(".cliente-telefono").style.display = "none";
@@ -164,13 +166,13 @@ function activarEdicionCliente(id, button) {
     fila.querySelector(".guardar").style.display = "inline-block";
     fila.querySelector(".cancelar").style.display = "inline-block";
     
-    // Ocultar el botón de Editar
+    // Ocultar el boton de Editar
     button.style.display = "none";
 }
 
-// 📌 Guardar la edición de un cliente
+// guardar la edición de un cliente
 async function guardarEdicionCliente(id) {
-    const fila = document.querySelector(`tr[data-id='${id}']`);  // Buscar la fila por el id
+    const fila = document.querySelector(`tr[data-id='${id}']`);  
     if (!fila) {
         console.error("Fila no encontrada.");
         return;
@@ -194,15 +196,15 @@ async function guardarEdicionCliente(id) {
 
     if (response.ok) {
         alert('Cliente actualizado correctamente');
-        obtenerClientes();  // Volver a cargar la lista de clientes
+        obtenerClientes();  
     } else {
         alert('Error al actualizar cliente');
     }
 }
 
-// 📌 Cancelar la edición de un cliente
+//Cancelar la edicion de un cliente
 function cancelarEdicionCliente(id) {
-    const fila = document.querySelector(`tr[data-id='${id}']`);  // Buscar la fila por el id
+    const fila = document.querySelector(`tr[data-id='${id}']`);  
     if (!fila) {
         console.error("Fila no encontrada.");
         return;
@@ -214,14 +216,11 @@ function cancelarEdicionCliente(id) {
     fila.querySelector(".cliente-telefono").style.display = "inline-block";
     fila.querySelector(".cliente-direccion").style.display = "inline-block";
 
-    // Ocultar los campos de edición
+    // Ocultar los campos de edicion
     fila.querySelectorAll(".edit-input").forEach(input => input.style.display = "none");
-
     // Ocultar botones de Guardar y Cancelar
     fila.querySelector(".guardar").style.display = "none";
     fila.querySelector(".cancelar").style.display = "none";
-    
-    // Mostrar botón de editar
     fila.querySelector(".btn").style.display = "inline-block";
 }
 
@@ -237,7 +236,7 @@ function cancelarEdicionCliente(id) {
 // Asigna la función al formulario
 document.getElementById("clienteForm").addEventListener("submit", agregarCliente);
 
-// 🔹 PUT: Editar un cliente
+//////////// actualizar al editar un cliente
 async function editarCliente(id) {
     try {
         const token = localStorage.getItem("token");
@@ -287,7 +286,7 @@ async function actualizarCliente(event) {
 
         if (response.ok) {
             alert("Cliente actualizado correctamente");
-            obtenerClientes(); // Refresca la lista de clientes
+            obtenerClientes(); 
             document.getElementById("clienteForm").reset();
         } else {
             alert("Error al actualizar cliente: " + data.error);
@@ -297,7 +296,7 @@ async function actualizarCliente(event) {
     }
 }
 
-// 🔹 DELETE: Eliminar un cliente
+//Eliminar un cliente
 async function eliminarCliente(id) {
     if (!confirm("¿Estás seguro de eliminar este cliente?")) return;
 
@@ -310,7 +309,7 @@ async function eliminarCliente(id) {
 
         if (response.ok) {
             alert("Cliente eliminado correctamente");
-            obtenerClientes(); // Refresca la lista de clientes
+            obtenerClientes(); 
         } else {
             alert("Error al eliminar cliente");
         }

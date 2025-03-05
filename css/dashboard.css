@@ -7,26 +7,26 @@ body, html {
     display: block;
     overflow-y: auto;
     background-image: url('https://images.unsplash.com/photo-1486728297118-82a07bc48a28?q=80&w=1229&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;  /* Hace que la imagen cubra todo sin repetirse */
-    background-position: center center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed; /* Mantiene la imagen estática al hacer scroll */
+    background-size: cover;  
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 }
 
 
-/* Estilos generales del Dashboard */
+/* Estilos generale */
 .dashboard-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ajustar a toda la pantalla */
+    height: 100vh; 
     gap: 20px;
     background-color: #0c0c1695;
     margin: 0;
     padding: 0;
 }
 
-/* Estilos para las tarjetas */
+/* tarjetas */
 .dashboard-card {
     width: 250px;
     height: 200px;
@@ -44,26 +44,26 @@ body, html {
     text-align: center;
 }
 
-/* Colores de fondo diferentes */
+
 #clientes {
-    background-color: #005eff7b; /* Azul */
+    background-color: #005eff7b; 
 }
 
 #visitas {
-    background-color: #f03dfa7c; /* Verde */
+    background-color: #f03dfa7c; 
 }
 
 #configuracion {
-    background-color: #1deaf87d; /* Rojo */
+    background-color: #1deaf87d;
 }
 
-/* Efecto de elevación al pasar el cursor */
+
 .dashboard-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Imagen de fondo en hover */
+
 .dashboard-card::after {
     content: "";
     position: absolute;
@@ -78,7 +78,7 @@ body, html {
     transition: opacity 0.3s ease;
 }
 
-/* Diferentes imágenes para cada tarjeta */
+
 #clientes:hover::after {
     background-image: url('https://icon-library.com/images/user-icon-png/user-icon-png-13.jpg'); /* Imagen de clientes */
     opacity: 0.4;
@@ -94,7 +94,7 @@ body, html {
     opacity: 0.4;
 }
 
-/* Media query para hacer responsive */
+/*  */
 @media (max-width: 768px) {
     .dashboard-container {
         flex-direction: column;

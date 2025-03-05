@@ -19,17 +19,17 @@ document.getElementById("formReporte").addEventListener("submit", async (event) 
     formData.append("horaFin", new Date().toISOString());
     formData.append("descripcion", document.getElementById("descripcion").value);
     formData.append("estado", document.getElementById("estado").value);
-
+// Adjuntar el archivo de evidencia
     const evidenciaInput = document.getElementById("evidencia");
     if (evidenciaInput.files.length > 0) {
-        formData.append("evidencia", evidenciaInput.files[0]); // Adjuntar el archivo
+        formData.append("evidencia", evidenciaInput.files[0]); 
     }
 
     try {
         const response = await fetch("https://skynet-by4s.onrender.com/reportes", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${localStorage.getItem("token")}` // No uses "Content-Type", FormData lo maneja automáticamente
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
             body: formData
         });
@@ -39,7 +39,7 @@ document.getElementById("formReporte").addEventListener("submit", async (event) 
         alert("✅ Reporte enviado con éxito.");
         window.location.href = "misReportes.html";
     } catch (error) {
-        console.error("❌ Error al enviar el reporte:", error);
+        console.error("Error al enviar el reporte:", error);
         alert("Hubo un error al enviar el reporte.");
     }
 });

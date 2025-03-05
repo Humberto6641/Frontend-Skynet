@@ -20,16 +20,16 @@ body, html {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 100vw; /* Ancho completo */
-    height: 100vh; /* Altura completa */
-    padding:100px; /* Añadido espacio alrededor */
+    width: 100vw; 
+    height: 100vh; 
+    padding:100px; 
     box-sizing: border-box;
     background-color: #0c0c16a2;
 }
 
 .modulo {
-    width: 300px; /* Tamaño fijo para cada módulo */
-    height: 200px; /* Tamaño fijo para cada módulo */
+    width: 300px; 
+    height: 200px; 
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -46,30 +46,30 @@ body, html {
     overflow: hidden;
 }
 
-/* Colores de fondo diferentes */
+/* Colores */
 #clientes {
-    background-color: #005eff7b; /* Azul */
+    background-color: #005eff7b; 
 }
 
 #usuarios {
-    background-color: #fa5afc59; /* Verde */
+    background-color: #fa5afc59; 
 }
 
 #reportes {
-    background-color: #3ffdbb88; /* Rojo */
+    background-color: #3ffdbb88; 
 }
 
 #grupos {
-    background-color: #f83b8088; /* Amarillo */
+    background-color: #f83b8088; 
 }
 
-/* Efecto de elevación al pasar el cursor */
+/* */
 .modulo:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Imagen de fondo en hover */
+
 .modulo::after {
     content: "";
     position: absolute;
@@ -83,7 +83,7 @@ body, html {
     transition: opacity 0.3s ease;
 }
 
-/* Diferentes imágenes para cada tarjeta */
+
 #clientes:hover::after {
     background-image: url('https://icon-library.com/images/user-icon-png/user-icon-png-13.jpg');
     opacity: 0.4;
@@ -107,9 +107,8 @@ body, html {
 
 
 
-/* Media query para hacer responsive */
 @media (max-width: 768px) {
     .modulo {
-        width: 90%; /* Ajusta el tamaño de las tarjetas en pantallas pequeñas */
+        width: 90%; 
     }
 }

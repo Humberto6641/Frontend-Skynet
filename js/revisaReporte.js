@@ -93,7 +93,7 @@ function mostrarReportes(reportes) {
 
 //////////////////////////////////////////////////////
 async function actualizarEstadoReporte(event) {
-    const boton = event.target; // Botón que activó el evento
+    const boton = event.target; // Boton que activó el evento
     const idReporte = boton.dataset.id; // Obtener el ID del reporte
     const select = document.getElementById(`estado-${idReporte}`); // Buscar el select asociado
     const nuevoEstado = select.value; // Obtener el valor seleccionado
@@ -132,7 +132,7 @@ async function actualizarEstadoReporte(event) {
 //////////////////////////////////////////////////////////PDF
 
 async function verReporte(id) {
-    console.log("📄 Generando PDF para el reporte ID:", id);
+    console.log("Generando PDF para el reporte ID:", id);
 
     const token = localStorage.getItem("token");
 
@@ -148,7 +148,7 @@ async function verReporte(id) {
         }
 
         const reporte = await response.json();
-        console.log("📌 Reporte recibido:", reporte);
+        console.log(" Reporte recibido:", reporte);
 
         // Llamar a la función para generar el PDF
         generarPDF(reporte);
@@ -160,20 +160,20 @@ async function verReporte(id) {
 function generarPDF(reporte) {
     const { id, id_tecnico, id_supervisor, descripcion, horaInicio, horaFin, estado, evidencia } = reporte;
 
-    // 🔹 Asegurar acceso a jsPDF
+    // Asegurar acceso a jsPDF
     if (!window.jspdf) {
-        console.error("⚠️ jsPDF no está definido. Verifica la carga del script en el HTML.");
+        console.error(" jsPDF no está definido. Verifica la carga del script en el HTML.");
         return;
     }
     const { jsPDF } = window.jspdf;
 
     const doc = new jsPDF();
 
-    // 📝 Título del documento
+    // Titulo del documento
     doc.setFontSize(18);
     doc.text("Reporte de Visita Técnica", 20, 20);
 
-    // 📄 Información del reporte
+    // Información del reporte
     doc.setFontSize(12);
     doc.text(`ID del Reporte: ${id}`, 20, 30);
     doc.text(`Técnico: ${id_tecnico}`, 20, 40);
@@ -182,17 +182,17 @@ function generarPDF(reporte) {
     doc.text(`Fecha de Fin: ${new Date(horaFin).toLocaleString()}`, 20, 70);
     doc.text(`Estado: ${estado}`, 20, 80);
 
-    // 📌 Descripción en un cuadro de texto
+    
     doc.text("Descripción:", 20, 90);
     doc.text(doc.splitTextToSize(descripcion, 170), 20, 100);
 
-    // 📸 Agregar imágenes si hay evidencia
+    
     if (evidencia) {
-        let yPos = 120; // 📍 Posición inicial de la imagen
+        let yPos = 120; 
         let evidenciasArray = typeof evidencia === "string" ? [evidencia] : evidencia; // Convertir a array si es necesario
 
         evidenciasArray.forEach((imgUrl, index) => {
-            if (yPos > 250) { // 📄 Si se llena la página, agregar una nueva
+            if (yPos > 250) { 
                 doc.addPage();
                 yPos = 20;
             }
@@ -200,26 +200,26 @@ function generarPDF(reporte) {
             doc.text(`Evidencia ${index + 1}:`, 20, yPos);
             yPos += 10;
 
-            // 🔄 Convertir imagen a Base64 y agregarla al PDF
+            //Convertir imagen a Base64 y agregarla al PDF
             convertImageToBase64(imgUrl, (base64) => {
                 doc.addImage(base64, "JPEG", 20, yPos, 80, 60);
                 yPos += 70;
 
-                // 📌 Guardar el PDF solo cuando todas las imágenes se hayan agregado
+                // Guardar el PDF 
                 if (index === evidenciasArray.length - 1) {
                     doc.save(`Reporte_${id}.pdf`);
                 }
             });
         });
     } else {
-        // 📥 Guardar el PDF si no hay imágenes
+        
         doc.save(`Reporte_${id}.pdf`);
     }
 }
 
 function convertImageToBase64(url, callback) {
     const img = new Image();
-    img.crossOrigin = "Anonymous"; // Para evitar problemas de CORS en imágenes externas
+    img.crossOrigin = "Anonymous"; 
     img.src = url;
 
     img.onload = function () {
@@ -236,19 +236,19 @@ function convertImageToBase64(url, callback) {
 
     img.onerror = function () {
         console.error("Error cargando la imagen:", url);
-        callback(null); // En caso de error, no agregamos la imagen
+        callback(null); 
     };
 }
 
 
-// Obtener el ID del usuario (en este caso el supervisor) desde el token (esto ya lo haces en otros archivos)
+// Obtener el ID del usuario 
 function obtenerIdUsuario() {
     const token = localStorage.getItem("token");
     if (!token) return null;
 
     try {
         const payload = JSON.parse(atob(token.split('.')[1]));
-        return payload.userId;  // Suponiendo que el ID del usuario está en el payload del token
+        return payload.userId;  
     } catch (e) {
         console.error("Error obteniendo ID del usuario desde el token", e);
         return null;

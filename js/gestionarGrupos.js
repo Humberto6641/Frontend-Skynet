@@ -1,7 +1,7 @@
-// Obtener el token de autenticación
+// token
 const token = localStorage.getItem('token');  
 
-// Función para cargar los grupos
+// carga los grupos
 function cargarGruposYUsuarios() {
     fetch('https://skynet-by4s.onrender.com/grupos', {
         method: 'GET',
@@ -30,7 +30,7 @@ function cargarGruposYUsuarios() {
 
 
 
-// Función para cargar técnicos disponibles para un grupo específico
+// carga los tecnicos disponibles para un grupo 
 async function cargarTecnicosParaGrupo(grupoId) {
     try {
         const response = await fetch('https://skynet-by4s.onrender.com/usuarios/tecnicos-disponibles', {
@@ -47,14 +47,14 @@ async function cargarTecnicosParaGrupo(grupoId) {
 
         const tecnicos = await response.json();
 
-        // Buscar el select específico dentro del grupo
+    
         const selectTecnicos = document.getElementById(`tecnico-${grupoId}`);
         if (!selectTecnicos) {
             console.error(`Elemento tecnico-${grupoId} no encontrado`);
             return;
         }
 
-        selectTecnicos.innerHTML = ''; // Limpiar el select
+        selectTecnicos.innerHTML = ''; 
 
         tecnicos.forEach(tecnico => {
             const option = document.createElement('option');
@@ -68,10 +68,10 @@ async function cargarTecnicosParaGrupo(grupoId) {
     }
 }
 
-// Función para asignar un técnico a un grupo
+// asigna un tecnico a un grupo
 function asignarTecnico(grupoId) {
     const selectTecnicos = document.getElementById(`tecnico-${grupoId}`);
-    const idTecnico = parseInt(selectTecnicos.value, 10); // Convertir a número entero
+    const idTecnico = parseInt(selectTecnicos.value, 10); 
 
     if (!idTecnico) {
         alert('Selecciona un técnico antes de asignar.');
@@ -81,10 +81,10 @@ function asignarTecnico(grupoId) {
     fetch(`https://skynet-by4s.onrender.com/grupos/${grupoId}/asignar-tecnico`, {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`, // Corregido
+            'Authorization': `Bearer ${localStorage.getItem('token')}`, 
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ id_tecnico: idTecnico }) // Convertido a número
+        body: JSON.stringify({ id_tecnico: idTecnico }) 
     })
     .then(response => {
         if (!response.ok) {
@@ -94,7 +94,7 @@ function asignarTecnico(grupoId) {
     })
     .then(data => {
         alert('Técnico asignado correctamente');
-        mostrarGrupos(); // Volver a cargar la lista de grupos
+        mostrarGrupos();
     })
     .catch(error => {
         alert(`Error al asignar técnico: ${error.message}`);
@@ -103,7 +103,7 @@ function asignarTecnico(grupoId) {
 }
 
 
-// Cargar supervisores y grupos al cargar la página
+// Cargar supervisores y grupos 
 document.addEventListener('DOMContentLoaded', () => {
     cargarSupervisores();
     mostrarGrupos();
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //////////////////////CARGAR LOS SUPERVISORES PARA MOSTRARLOS EN EL SELECT
-// Función para cargar supervisores y llenar el select en el formulario de creación de grupo
+// Funcion para cargar supervisores y llenar el select en el formulario del grupo
 // Cargar supervisores en el select al crear grupo
 function cargarSupervisores() {
     fetch('https://skynet-by4s.onrender.com/usuarios', {
@@ -200,11 +200,11 @@ function obtenerTecnicosDisponibles(grupoId) {
             'Authorization': `Bearer ${token}`,
         }
     })
-    .then(response => response.json())  // Convertir la respuesta a JSON
+    .then(response => response.json())  
     .then(data => {
-        if (Array.isArray(data)) {  // Verificar si 'data' es un array
+        if (Array.isArray(data)) {  
             const selectTecnicos = document.getElementById(`tecnico-${grupoId}`);
-            selectTecnicos.innerHTML = '';  // Limpiar el select antes de agregar nuevos elementos
+            selectTecnicos.innerHTML = '';  
 
             data.forEach(tecnico => {
                 const option = document.createElement('option');
@@ -250,7 +250,7 @@ async function mostrarGrupos(grupos) {
     }
 }
 
-// Función para obtener el nombre del supervisor
+// Funcion para obtener el nombre del supervisor
 async function obtenerNombreSupervisor(idSupervisor) {
     try {
         const response = await fetch(`https://skynet-by4s.onrender.com/usuarios/${idSupervisor}`, {
@@ -266,14 +266,14 @@ async function obtenerNombreSupervisor(idSupervisor) {
         }
 
         const supervisor = await response.json();
-        return supervisor.nombre; // Suponiendo que la API devuelve { nombre: "Juan Pérez" }
+        return supervisor.nombre; 
     } catch (error) {
         console.error('Error al obtener supervisor:', error);
-        return 'Desconocido'; // Valor por defecto en caso de error
+        return 'Desconocido'; 
     }
 }
 
-// Cargar técnicos de un grupo
+// gar tecnicos de un grupo
 async function cargarTecnicosDelGrupo(grupoId) {
     try {
         const response = await fetch(`https://skynet-by4s.onrender.com/grupos/${grupoId}/tecnicos`, {
@@ -294,7 +294,7 @@ async function cargarTecnicosDelGrupo(grupoId) {
     }
 }
 
-// Quitar técnico de un grupo
+// Quitar tecnico de un grupo
 async function quitarTecnico(grupoId, tecnicoId) {
     if (confirm('¿Seguro que quieres quitar este técnico del grupo?')) {
         try {
@@ -327,7 +327,7 @@ async function eliminarGrupo(grupoId) {
     }
 }
 
-// Editar grupo (nombre o descripción)
+// Editar grupo 
 async function editarGrupo(grupoId, nuevoValor, campo) {
     try {
         await fetch(`https://skynet-by4s.onrender.com/grupos/${grupoId}`, {
@@ -347,7 +347,7 @@ async function editarGrupo(grupoId, nuevoValor, campo) {
 
 
 document.getElementById("formCrearGrupo").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Evitar el envío normal del formulario
+    event.preventDefault(); 
 
     // Capturar los valores del formulario
     const nombre = document.getElementById("nombreGrupo").value;
@@ -397,5 +397,5 @@ document.getElementById("formCrearGrupo").addEventListener("submit", async funct
 
 
 
-// Cargar datos cuando el DOM esté listo
+
 document.addEventListener('DOMContentLoaded', cargarGruposYUsuarios, cargarSupervisores );

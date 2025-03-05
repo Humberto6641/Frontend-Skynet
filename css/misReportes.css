@@ -3,12 +3,12 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    width: 100vw; /* Ancho completo */
+    width: 100vw; 
     font-family: Arial, sans-serif;
     border: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Cambié a flex-start para evitar que se centre todo */
+    align-items: flex-start; 
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -19,18 +19,18 @@ body {
 
 .modulos-container{
     background-color: #0404047f;
-    width: 100vw; /* Ancho completo */
-    height: 100vh; /* Altura completa */
+    width: 100vw; 
+    height: 100vh; 
     display: flex;
-    flex-direction: column; /* Apilar el título y los contenedores */
+    flex-direction: column; 
     margin: 0%;
-    padding: 0%; /* Centrar el contenedor y dejar margen de 20px en los bordes */
+    padding: 0%; 
     text-align: center;
     color: #fcfcfc;
     padding: 0 20px;
 }
 
-/* Estilo para la tabla */
+/*tabla */
 .tablaMisReportes {
     overflow-x: auto;
 }

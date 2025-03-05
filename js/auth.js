@@ -1,12 +1,12 @@
 // Función para manejar el inicio de sesión (Login)
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();  // Evita que se recargue la página al enviar el formulario
+    e.preventDefault();  
 
     const correo = document.getElementById('correo').value;
     const password = document.getElementById('password').value;
 
     try {
-        // Hacer la solicitud al backend para iniciar sesión
+        // hace la solicitud al backend 
         const response = await fetch('https://skynet-by4s.onrender.com/api/login', {
             method: 'POST',
             headers: {
@@ -17,8 +17,8 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('token', data.token); // Almacenar el token
-            window.location.href = '../pages/dashboard.html'; // Redirigir al dashboard o donde sea necesario
+            localStorage.setItem('token', data.token); // guarda el token
+            window.location.href = '../pages/dashboard.html'; // Redirige al dashboard 
         } else {
             const errorData = await response.json();
             document.getElementById('error-message').textContent = errorData.error || 'Error desconocido';
@@ -31,7 +31,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
 // Función para manejar el registro de un nuevo usuario
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
-    e.preventDefault();  // Evita que se recargue la página al enviar el formulario
+    e.preventDefault();  // 
 
     const nombre = document.getElementById('nombre').value;
     const correo = document.getElementById('correoRegistro').value;
@@ -39,7 +39,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     const password = document.getElementById('passwordRegistro').value;
 
     try {
-        // Hacer la solicitud al backend para registrar al usuario
+        // Hace la solicitud al backend para registrar al usuario
         const response = await fetch('https://skynet-by4s.onrender.com/usuarios', {
             method: 'POST',
             headers: {
@@ -51,7 +51,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
         if (response.ok) {
             const data = await response.json();
             document.getElementById('error-message').textContent = 'Usuario registrado con éxito';
-            //O redirigir al login después de registrarse:
+            //le redirigira al login después de registrarse:
              window.location.href = '/pages/login.html';
         } else {
             const errorData = await response.json();

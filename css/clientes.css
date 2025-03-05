@@ -1,14 +1,14 @@
-/* Establece que todo debe ocupar toda la altura y ancho disponibles */
+/* general*/
 body, html {
     margin: 0;
     padding: 0;
     height: 100vh;
-    width: 100vw; /* Ancho completo */
+    width: 100vw; 
     font-family: Arial, sans-serif;
     border: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Cambié a flex-start para evitar que se centre todo */
+    align-items: flex-start; 
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -16,11 +16,11 @@ body, html {
     background-image: url('https://images.unsplash.com/photo-1730422206327-b88720e9806b?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
-/* Contenedor principal */
+/*  */
 .clientes-container {
   
     display: flex;
-    flex-direction: column; /* Apilar el título y los contenedores */
+    flex-direction: column; 
     margin: 20px auto;
     background-color: #0404047f;
 }
@@ -28,39 +28,39 @@ body, html {
 /* Contenedor principal */
 .clientes-container {
     background-color: #0404047f;
-    width: 100vw; /* Ancho completo */
-    height: 100vh; /* Altura completa */
+    width: 100vw; 
+    height: 100vh; 
     display: flex;
-    flex-direction: column; /* Apilar el título y los contenedores */
+    flex-direction: column; 
     margin: 0%;
-    padding: 0%; /* Centrar el contenedor y dejar margen de 20px en los bordes */
+    padding: 0%; 
     text-align: center;
     color: #fcfcfc;
-    padding: 0 20px; /* Agregar margen interior (espacio entre el contenido y el borde del contenedor) */
+    padding: 0 20px; 
 }
 
-/* Contenedor con el formulario y la tabla en fila */
+/* contenedor con el formulario y la tabla en fila */
 .clientes-grid {
     
-    display: flex; /* Alineación en fila */
-    gap: 20px; /* Espacio entre el formulario y la tabla */
+    display: flex; 
+    gap: 20px; 
     width: 100%;
 }
 
-/* Formulario de agregar cliente */
+/* formulario del cliente */
 .formulario-container {
     background-color: #1010106c;
-    flex-basis: 40%; /* Asignar un 40% de espacio fijo para el formulario */
+    flex-basis: 40%; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Tabla de clientes */
+/* tabla de clientes */
 .tabla-container {
     background-color: #00000061;
-    flex-basis: 90%; /* Asignar un 60% de espacio fijo para la tabla */
+    flex-basis: 90%; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -68,7 +68,7 @@ body, html {
 }
 
 
-/* Estilo para la tabla */
+/* estilo para la tabla */
 .table-wrapper {
     overflow-x: auto;
 }
@@ -93,7 +93,7 @@ td {
     background-color: rgba(23, 23, 23, 0.7);
 }
 
-/* Campos de texto */
+/* campos de texto */
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -107,7 +107,7 @@ input[type="text"] {
     font-size: 16px;
 }
 
-/* Etiquetas */
+/* etiquetas */
 label {
     color: white;
     display: block;
@@ -116,7 +116,7 @@ label {
     font-size: 16px;
 }
 
-/* Títulos */
+/* titulo */
 h2 {
     font-size: 24px;
     margin-bottom: 20px;
